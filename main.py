@@ -37,10 +37,9 @@ async def hello(client, message):
         total_price = tmp[4]
         order_message = 'Order #' + order_id + '\n' + list_product + "\nTotal price:" + total_price + '$'
         print('userbot_id: ' + userbot_id)
-        print('chat_id: ' + chat_id)
-        print('user_id: ' + user_id)
+        print('user_id: ' + str(user_id))
 
-        await app.create_group('snaptrap.online Order #' + order_id, [userbot_id, chat_id, user_id])
+        await app.create_group('snaptrap.online Order #' + order_id, [userbot_id, user_id])
         await send_msg(order_id, order_message)
 
 
