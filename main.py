@@ -1,6 +1,6 @@
 from pyrogram import Client
 
-app = Client("straptrap")
+app = Client("straptrapone")
 
 """
 Функция ищет из 5 последних диалогов диалог с название заказа 
