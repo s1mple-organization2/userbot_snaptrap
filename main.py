@@ -27,7 +27,7 @@ async def hello(client, message):
     global order_id, order_message
     chat_id = message.chat.id
     # id юзербот
-    userbot_id = 5031837131
+    userbot_id = '5031837131'
     if message.chat.username == 'snaptrap_bot' or message.chat.type == 'bot':
         tmp = message.text.split(":")
         order_id = tmp[0]
@@ -36,6 +36,10 @@ async def hello(client, message):
         list_product = tmp[3]
         total_price = tmp[4]
         order_message = 'Order #' + order_id + '\n' + list_product + "\nTotal price:" + total_price + '$'
+        print('userbot_id: ' + userbot_id)
+        print('chat_id: ' + chat_id)
+        print('user_id: ' + user_id)
+
         await app.create_group('snaptrap.online Order #' + order_id, [userbot_id, chat_id, user_id])
         await send_msg(order_id, order_message)
 
