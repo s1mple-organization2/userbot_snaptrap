@@ -39,7 +39,7 @@ async def hello(client, message):
         print('userbot_id: ' + userbot_id)
         print('user_id: ' + str(user_id))
 
-        await app.create_group('snaptrap.online Order #' + order_id, [userbot_id, user_id])
+        await app.create_group('snaptrap.online Order #' + order_id, [userbot_id, user_id, 5031837131])
         await send_msg(order_id, order_message)
 
 
