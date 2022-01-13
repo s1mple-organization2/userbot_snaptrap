@@ -39,8 +39,15 @@ async def hello(client, message):
         print('userbot_id: ' + userbot_id)
         print('user_id: ' + str(user_id))
 
-        await app.create_group('snaptrap.online Order #' + order_id, [int(userbot_id), int(user_id), int(5031837131)])
-        await send_msg(order_id, order_message)
+        try:
+            await app.create_group('snaptrap.online Order #' + order_id,
+                                   [int(userbot_id), int(user_id), int(5031837131), int(manager_id)])
+            await app.send_message('me',
+                                   'group added' + str(userbot_id) + str(user_id) + str(5031837131) + str(manager_id))
+            await send_msg(order_id, order_message)
+        except Exception as err:
+            await app.send_message('me', format(err))
+
 
 
 app.run()
