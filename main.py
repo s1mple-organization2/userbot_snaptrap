@@ -47,5 +47,11 @@ async def hello(client, message):
             await app.send_message('me', err)
 
         await send_msg(order_id, order_message)
+    elif message.text == 'hello':
+        await app.send_message(message.chat.id,
+                               'Hello ' + message.chat.username + ', please send "/start" to bot @snaptrap_bot')
+    else:
+        await app.send_message(message.chat.id, 'I don\'t understand. Please send a message "hello"')
+
 
 app.run()
