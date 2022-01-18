@@ -38,15 +38,20 @@ async def hello(client, message):
         order_message = 'Order #' + order_id + '\n' + list_product + "\nTotal price:" + total_price + '$'
         print('userbot_id: ' + userbot_id)
         print('user_id: ' + str(user_id))
+        manager = app.get_users(manager_id)
 
         try:
             await app.create_group('snaptrap.online Order #' + order_id,
                                    [int(user_id), 'snaptrap_bot', int(manager_id)])
+            await send_msg(order_id, order_message)
+
 
         except Exception as err:
+            await app.send_message(chat_id,
+                               'I can\'ht create a group with a manager, '
+                               'please allow me to add you to the group in the settings and make an order again. Or write to the manager @' + manager.username)
             await app.send_message('me', err)
 
-        await send_msg(order_id, order_message)
     elif message.text == 'hello':
         await app.send_message(message.chat.id,
                                'Hello ' + message.chat.username + ', please send "/start" to bot @snaptrap_bot')
