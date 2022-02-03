@@ -19,7 +19,8 @@ async def get_chat_link(title):
     async for dialog in app.iter_dialogs(5):
         if (dialog.chat.title == title):
             link = app.export_chat_invite_link(dialog.chat.id)
-        return link
+            await app.send_message(dialog.chat.id, link)
+
 
 
 """ 
@@ -70,8 +71,8 @@ async def hello(client, message):
                 title = 'snaptrap.online Product info ' + product_name + user_id
                 await app.create_group(title,
                                        [int(user_id), int(manager_id)])
-                link_group = await get_chat_link(title)
-                print(link_group)
+                await get_chat_link(title)
+
                 # await send_msg(order_id, order_message)
             except Exception as err:
                 await app.send_message('me', err)
