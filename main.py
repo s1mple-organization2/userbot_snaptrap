@@ -14,6 +14,14 @@ async def send_msg(order_id, order_message):
             await app.send_message(dialog.chat.id, order_message)
 
 
+async def get_chat_link(title):
+    global link
+    async for dialog in app.iter_dialogs(5):
+        if (dialog.chat.title == 'title'):
+            link = app.export_chat_invite_link(dialog.chat.id)
+        return link
+
+
 """ 
 Получить сообщение от бота
 Если сообщение пришло от snaptrap_bot или от бота 
@@ -24,7 +32,7 @@ async def send_msg(order_id, order_message):
 
 @app.on_message()
 async def hello(client, message):
-    global order_id, order_message
+    global order_id, order_message, title
     chat_id = message.chat.id
     # id юзербот
     userbot_id = '5031837131'
@@ -59,12 +67,11 @@ async def hello(client, message):
             manager_id = tmp[4]
             message = 'Product: ' + product_name + '\nPrice: ' + '$' + product_price
             try:
-                group = app.create_group('snaptrap.online Product info ' + product_name + user_id,
+                title = 'snaptrap.online Product info ' + product_name + user_id;
+                await app.create_group(title,
                                        [int(user_id), int(manager_id)])
-                await group
-                link = group.get_chat_invite_link()
+                print(get_chat_link(title))
                 # await send_msg(order_id, order_message)
-                print(link)
             except Exception as err:
                 await app.send_message('me', err)
 
