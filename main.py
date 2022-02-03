@@ -17,7 +17,7 @@ async def send_msg(order_id, order_message):
 async def get_chat_link(title):
     global link
     async for dialog in app.iter_dialogs(5):
-        if (dialog.chat.title == 'title'):
+        if (dialog.chat.title == title):
             link = app.export_chat_invite_link(dialog.chat.id)
         return link
 
