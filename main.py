@@ -70,8 +70,8 @@ async def hello(client, message):
                 title = 'snaptrap.online Product info ' + product_name + user_id
                 await app.create_group(title,
                                        [int(user_id), int(manager_id)])
-                link = await get_chat_link(title)
-                print(link)
+                link_group = await get_chat_link(title)
+                print(link_group)
                 # await send_msg(order_id, order_message)
             except Exception as err:
                 await app.send_message('me', err)
