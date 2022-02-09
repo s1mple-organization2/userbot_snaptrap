@@ -77,7 +77,7 @@ async def hello(client, message):
             except Exception as err:
                 await app.send_message('me', err)
 
-    elif message.text == 'hello':
+    elif message.text == 'hello' or message.text == 'Hello' or message.text == 'Hi' or message.text == 'hi':
         await app.send_message(message.chat.id,
                                'Hello ' + message.chat.username + ', please send "/start" to bot @snaptrap_bot')
 
