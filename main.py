@@ -78,10 +78,10 @@ async def hello(client, message):
 
     elif message.text == 'hello' or message.text == 'Hello':
         await app.send_message(message.chat.id,
-                               'Hello ' + message.chat.username + ', please send "/start" to bot @snaptrap_bot')
+                               'Hello, please send "/start" to bot @snaptrap_bot')
     elif message.text == 'Hi' or message.text == 'hi':
         await app.send_message(message.chat.id,
-                               'Hello ' + message.chat.username + ', please send "/start" to bot @snaptrap_bot')
+                               'Hello, please send "/start" to bot @snaptrap_bot')
 
     elif message.text == 'tg':
         await app.create_group('test_group1', [5031837131])
