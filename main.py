@@ -33,7 +33,7 @@ async def get_chat_link(title):
 @app.on_message()
 async def hello(client, message):
     global order_id, order_message, title
-    text = 'Hello, Welcome to SnapTrap.Online \'Your Plug’s Plug\' \nTo make an account please click the blue link\n👇👇👇👇👇👇👇👇👇👇👇👇👇\n\t@snaptrap_bot\nThen click the Start button & Registration button to create an account. Please allow 2-3 Hours for Verification.\nIf you have any questions please click\n👉 @barelanded to message us.)'
+    text = 'Hello, Welcome to SnapTrap.Online \'Your Plug’s Plug\' \nTo make an account please click the blue link\n👇👇👇👇👇👇👇👇👇👇👇👇👇\n\t\t\t@snaptrap_bot\nThen click the Start button & Registration button to create an account. Please allow 2-3 Hours for Verification.\nIf you have any questions please click\n👉 @barelanded to message us.'
 
     chat_id = message.chat.id
     # id юзербот
