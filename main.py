@@ -33,6 +33,8 @@ async def get_chat_link(title):
 @app.on_message()
 async def hello(client, message):
     global order_id, order_message, title
+    text = 'Hello, Welcome to SnapTrap.Online \'Your Plug’s Plug\' \nTo make an account please click the blue link\n👇👇👇👇👇👇👇👇👇👇👇👇👇\n\t@snaptrap_bot\nThen click the Start button & Registration button to create an account. Please allow 2-3 Hours for Verification.\nIf you have any questions please click\n👉 @barelanded to message us.)'
+
     chat_id = message.chat.id
     # id юзербот
     userbot_id = '5031837131'
@@ -77,11 +79,9 @@ async def hello(client, message):
                 await app.send_message('me', err)
 
     elif message.text == 'hello' or message.text == 'Hello':
-        await app.send_message(message.chat.id,
-                               'Hello, please send "/start" to bot @snaptrap_bot')
+        await app.send_message(message.chat.id, text)
     elif message.text == 'Hi' or message.text == 'hi':
-        await app.send_message(message.chat.id,
-                               'Hello, please send "/start" to bot @snaptrap_bot')
+        await app.send_message(message.chat.id, text)
 
     elif message.text == 'tg':
         await app.create_group('test_group1', [5031837131])
